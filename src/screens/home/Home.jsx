@@ -1,22 +1,16 @@
-import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import React from 'react';
+import {View, Text, Image} from 'react-native';
 import Button from '../../components/button/Button';
-import DrawerNavigator from '../../navigators/DrawerNavigator';
-import StackNavigator from '../../navigators/StackNavigator';
 
 const Home = ({navigation}) => {
-  const [pagina, setPagina] = useState();
-
   const clicar = () => {
-    navigation.navigate('DrawerNavigator', (screen = 'Cadastra Funcionario'));
+    navigation.navigate('DrawerNavigator');
   };
+
   return (
-    <View>
-      <Text>Sejam bem vindos.</Text>
-      <View style={{flexDirection: 'row'}}>
-        <Text>Para visualizar os Funcionarios</Text>
+    <View style={{marginTop: 220, alignItems: 'center'}}>
+        <Image source={require('../../assents/img/ic_launcher.png')} />
         <Button onPress={clicar} title={'Entrar'} />
-      </View>
     </View>
   );
 };
