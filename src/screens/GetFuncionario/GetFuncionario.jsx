@@ -88,7 +88,7 @@ const GetFuncionario = ({}) => {
             mode="outlined"
             label="Cpf"
             placeholderTextColor="black"
-            placeholder="Digite o Cpf do Funcionario"
+            placeholder="Digite o CPF do Funcionario"
           />
         </View>
         <View style={{marginTop: 10, marginBottom: 30, alignItems: 'center'}}>

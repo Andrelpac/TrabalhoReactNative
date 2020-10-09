@@ -71,7 +71,7 @@ const DeletFuncionario = () => {
             mode="outlined"
             label="Cpf"
             placeholderTextColor="black"
-            placeholder="Digite o Cpf do Funcionario"
+            placeholder="Digite o CPF do Funcionario"
           />
         </View>
         <View style={{marginTop: 10, marginBottom: 30, alignItems: 'center'}}>
@@ -81,7 +81,7 @@ const DeletFuncionario = () => {
           <FlatList
             data={funcionarios}
             renderItem={renderFuncionario}
-            keyExtractor={(funcionario) => funcionario.id}
+            keyExtractor={(funcionario) => funcionario.id.toString()}
           />
         </View>
         <View style={{marginTop: 10, marginBottom: 500, alignItems: 'center'}}>

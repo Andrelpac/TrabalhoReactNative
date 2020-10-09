@@ -1,10 +1,11 @@
 import {View, Text} from 'react-native';
 import React from 'react';
-import {Body, Card, CardItem, Left, Thumbnail} from 'native-base';
+import {Body, Card, CardItem, Grid, Left, Thumbnail} from 'native-base';
 
 const Flat = ({dados}) => {
   return (
-    <Card>
+    <View style={{alignItems: 'center'}}>
+    <Card style={{width:350}}>
       <CardItem>
         <Left>
           <Thumbnail
@@ -12,14 +13,19 @@ const Flat = ({dados}) => {
             source={require('../../assents/img/foto1.jpg')}
           />
           <Body>
-            <View>
-              <Text>Nome do Funcionario: {dados.nome}</Text>
-              <Text>Cpf do Funcionario: {dados.cpf}</Text>
+            <View style={{flexDirection:"row"}}>
+              <Text style={{fontWeight: "bold"}}>Nome: </Text> 
+              <Text>{dados.nome}</Text>
+            </View>
+            <View style={{flexDirection:"row"}}>
+              <Text style={{fontWeight: "bold"}}>CPF: </Text> 
+              <Text>{dados.cpf}</Text>
             </View>
           </Body>
         </Left>
       </CardItem>
     </Card>
+    </View>
   );
 };
 export default Flat;
