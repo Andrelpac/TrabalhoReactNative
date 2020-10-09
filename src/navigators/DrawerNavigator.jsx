@@ -9,9 +9,16 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
   return (
-    <Drawer.Navigator initialRouteName={'Ver Funcionarios'}>
+    <Drawer.Navigator
+      overlayColor="transparent"
+      drawerStyle={{backgroundColor: 'lightgray'}}
+      initialRouteName={'Ver Funcionarios'}>
       <Drawer.Screen name="Ver Funcionarios" component={GetFuncionario} />
-      <Drawer.Screen name="Cadastra Funcionario" component={PostFuncionario} />
+      <Drawer.Screen
+        name="Cadastra Funcionario"
+        component={PostFuncionario}
+        drawerStyle={{backgroundColor: '#052a92'}}
+      />
       <Drawer.Screen name="Alterar Funcionario" component={PutFuncionario} />
       <Drawer.Screen name="Deletar Funcionario" component={DeletFuncionario} />
     </Drawer.Navigator>

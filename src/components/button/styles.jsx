@@ -2,11 +2,12 @@ const {StyleSheet} = require('react-native');
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#269e3e',
+    backgroundColor: 'chocolate',
     marginHorizontal: 20,
     marginTop: 20,
     padding: 15,
     borderRadius: 10,
+    opacity: .75
   },
   buttonText: {
     alignSelf: 'center',

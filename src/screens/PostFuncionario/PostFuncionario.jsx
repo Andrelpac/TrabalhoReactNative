@@ -1,12 +1,22 @@
-import React, {useState} from 'react';
-import {View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {SafeAreaView, View} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import apiUrl from '../../components/api/ApiUrl';
 import Button from '../../components/button/Button';
+import NetInfo from '@react-native-community/netinfo';
 
 const PostFuncionario = () => {
   const [nome, setNome] = useState('');
   const [cpf, setCpf] = useState('');
+
+  useEffect(() => {
+    const unsubscribe = NetInfo.addEventListener((state) => {
+      if (state.isConnected) {
+      } else {
+        alert('Desculpe essa pagina só funciona com internet!');
+      }
+    });
+  });
 
   const handleSubmit = () => {
     const funcionario = {
@@ -29,51 +39,43 @@ const PostFuncionario = () => {
 
   return (
     <>
-      <View>
-        <TextInput
-          style={{
-            height: 40,
-            width: 350,
-            borderColor: 'gray',
-            borderWidth: 1,
-            backgroundColor: 'white',
-            borderRadius: 10,
-          }}
-          onChangeText={setNome}
-          mode="outlined"
-          label="Nome"
-          placeholderTextColor="black"
-          placeholder="Digite o nome do Funcionario"></TextInput>
-      </View>
-      <View>
-        <TextInput
-          style={{
-            height: 40,
-            width: 350,
-            borderColor: 'gray',
-            borderWidth: 1,
-            backgroundColor: 'white',
-            borderRadius: 10,
-          }}
-          onChangeText={setCpf}
-          mode="outlined"
-          label="CPF"
-          placeholderTextColor="black"
-          placeholder="Digite o CPF do Funcionario"></TextInput>
-      </View>
-      <View style={{marginBottom: 10}}>
-        <Button
-          buttonStyle={{
-            width: 350,
-            height: 50,
-            borderRadius: 10,
-            alignItems: 'center',
-            backgroundColor: 'blue',
-          }}
-          onPress={handleSubmit}
-          title="Cadastrar"
-        />
-      </View>
+      <SafeAreaView style={{backgroundColor: '#001766'}}>
+        <View style={{marginTop: 30, alignItems: 'center'}}>
+          <TextInput
+            style={{
+              height: 40,
+              width: 350,
+              borderColor: 'gray',
+              borderWidth: 1,
+              backgroundColor: 'white',
+              borderRadius: 10,
+            }}
+            onChangeText={setNome}
+            mode="outlined"
+            label="Nome"
+            placeholderTextColor="black"
+            placeholder="Digite o nome do Funcionario"></TextInput>
+        </View>
+        <View style={{marginTop: 30, alignItems: 'center'}}>
+          <TextInput
+            style={{
+              height: 40,
+              width: 350,
+              borderColor: 'gray',
+              borderWidth: 1,
+              backgroundColor: 'white',
+              borderRadius: 10,
+            }}
+            onChangeText={setCpf}
+            mode="outlined"
+            label="CPF"
+            placeholderTextColor="black"
+            placeholder="Digite o CPF do Funcionario"></TextInput>
+        </View>
+        <View style={{marginTop: 20, marginBottom: 700, alignItems: 'center'}}>
+          <Button onPress={handleSubmit} title="Cadastrar" />
+        </View>
+      </SafeAreaView>
     </>
   );
 };
